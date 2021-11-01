@@ -14,7 +14,7 @@ public class NumberSubscriber extends StringSubscriber {
 
     @Override
     public void onNext(String item) {
-        this.check = item.matches("[0-9]+");
+        this.check = item.matches(".*[0-9]+.*");
         if(check){
             super.onNext(item);
         }

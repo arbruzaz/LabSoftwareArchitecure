@@ -14,7 +14,7 @@ public class SymbolSubscriber extends StringSubscriber {
 
     @Override
     public void onNext(String item) {
-        this.check = item.matches("[\\W]+");
+        this.check = item.matches(".*[\\W]+.*");
         if(check){
             super.onNext(item);
         }

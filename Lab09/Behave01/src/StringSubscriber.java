@@ -7,6 +7,7 @@ public abstract class StringSubscriber implements Flow.Subscriber<String> {
 
     protected StringSubscription subscription;
     protected String fileName = "Behave01/src/Test/";
+    private String name;
 
     @Override
     public void onSubscribe(Flow.Subscription subscription) {
@@ -15,6 +16,7 @@ public abstract class StringSubscriber implements Flow.Subscriber<String> {
 
     @Override
     public void onNext(String item) {
+        this.name = item;
         try {
             FileWriter fw = new FileWriter(fileName, true);
             fw.write(item + "\n");
@@ -34,7 +36,7 @@ public abstract class StringSubscriber implements Flow.Subscriber<String> {
 
     @Override
     public void onComplete() {
-        System.out.println(this.getClass().getSimpleName() + " has completed subscribing.");
+        System.out.println(this.name + " is become one of a " + this.getClass().getSimpleName() + ".");
     }
 
 }

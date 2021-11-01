@@ -15,7 +15,7 @@ public class AlphabetSubscriber extends StringSubscriber {
 
     @Override
     public void onNext(String item) {
-        this.check = item.matches("[a-zA-Z]+");
+        this.check = item.matches(".*[a-zA-Z]+.*");
         if(check){
             super.onNext(item);
         }
